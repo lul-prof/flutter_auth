@@ -9,62 +9,64 @@ class WidgetTree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'HVT',
-              style: TextStyle(
-                letterSpacing: 10.0,
-                fontSize: 22.0
-
-              ),
-              ),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'HVT',
+                style: TextStyle(
+                  letterSpacing: 10.0,
+                  fontSize: 22.0
+          
+                ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Divider(
+                    color: Colors.white10,
+                    
+                  ),
+                ),
+                SizedBox(
+                  height: 15.0,
+                ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Divider(
-                  color: Colors.white10,
-                  
+                padding: const EdgeInsets.all(8.0),
+                child: FittedBox(
+                  child: Card(
+                    elevation: 10.0,
+                    shadowColor: Colors.blueGrey,
+                    child: Image.asset(
+                      'assets/images/chat_1.png'
+                      )),
                 ),
               ),
               SizedBox(
-                height: 15.0,
+                height: 100.0,
               ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FittedBox(
-                child: Card(
-                  elevation: 10.0,
-                  shadowColor: Colors.blueGrey,
-                  child: Image.asset(
-                    'assets/images/chat_1.png'
-                    )),
+              FilledButton(
+                style: FilledButton.styleFrom(
+                  minimumSize: Size(300, 50),
+                  backgroundColor: Colors.blueAccent,
+                  elevation: 4,
+                  foregroundColor: Colors.white
+                ),
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context) {
+                    return RegisterPage();
+                  },)
+                  );
+              }, child: Text(
+                'Get Started',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600
+                ),
+                ),
               ),
-            ),
-            SizedBox(
-              height: 100.0,
-            ),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                minimumSize: Size(300, 50),
-                backgroundColor: Colors.blueAccent,
-                elevation: 4,
-                foregroundColor: Colors.white
-              ),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder:(context) {
-                  return RegisterPage();
-                },)
-                );
-            }, child: Text(
-              'Get Started',
-              style: TextStyle(
-                fontWeight: FontWeight.w600
-              ),
-              ),
-            ),
-        
-          ],
+          
+            ],
+          ),
         ),
       ),
     );
